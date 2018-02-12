@@ -1,4 +1,4 @@
-Port 2022 или любой незанятый, рекомендовано в литературе, но можно и оставить 22
+Port 2022 ГЁГ«ГЁ Г«ГѕГЎГ®Г© Г­ГҐГ§Г Г­ГїГІГ»Г©, Г°ГҐГЄГ®Г¬ГҐГ­Г¤Г®ГўГ Г­Г® Гў Г«ГЁГІГҐГ°Г ГІГіГ°ГҐ, Г­Г® Г¬Г®Г¦Г­Г® ГЁ Г®Г±ГІГ ГўГЁГІГј 22
 Protocol 2
 # HostKeys for protocol version 2
 HostKey /etc/ssh/ssh_host_rsa_key
@@ -14,11 +14,11 @@ KeyRegenerationInterval 3600
 ServerKeyBits 1024
 
 # Logging
-SyslogFacility AUTH
+SyslogFacility AUTHPRIV
 LogLevel VERBOSE
 
 LoginGraceTime 120
-PermitRootLogin no - отключаем root
+PermitRootLogin no - Г®ГІГЄГ«ГѕГ·Г ГҐГ¬ root
 StrictModes yes
 
 RSAAuthentication yes
@@ -26,19 +26,19 @@ PubkeyAuthentication yes
 AuthorizedKeysFile	.ssh/authorized_keys
 
 #IgnoreRhosts yes
-RhostsRSAAuthentication yes - Вопрос спорный, но думаю лучше сразу определить известные хосты
+RhostsRSAAuthentication yes - Г‚Г®ГЇГ°Г®Г± Г±ГЇГ®Г°Г­Г»Г©, Г­Г® Г¤ГіГ¬Г Гѕ Г«ГіГ·ГёГҐ Г±Г°Г Г§Гі Г®ГЇГ°ГҐГ¤ГҐГ«ГЁГІГј ГЁГ§ГўГҐГ±ГІГ­Г»ГҐ ГµГ®Г±ГІГ»
 HostbasedAuthentication yes
 
 PermitEmptyPasswords no
-ChallengeResponseAuthentication no - если уж конфиг пишем для аутентификации по ключам
-PasswordAuthentication no - Запретим пересылку хэшей паролей
+ChallengeResponseAuthentication no - ГҐГ±Г«ГЁ ГіГ¦ ГЄГ®Г­ГґГЁГЈ ГЇГЁГёГҐГ¬ Г¤Г«Гї Г ГіГІГҐГ­ГІГЁГґГЁГЄГ Г¶ГЁГЁ ГЇГ® ГЄГ«ГѕГ·Г Г¬
+PasswordAuthentication no - Г‡Г ГЇГ°ГҐГІГЁГ¬ ГЇГҐГ°ГҐГ±Г»Г«ГЄГі ГµГЅГёГҐГ© ГЇГ Г°Г®Г«ГҐГ©
 
-X11Forwarding no - Считаю, что если GUI не установлен, то и опцию стоит отключить
+X11Forwarding no - Г‘Г·ГЁГІГ Гѕ, Г·ГІГ® ГҐГ±Г«ГЁ GUI Г­ГҐ ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­, ГІГ® ГЁ Г®ГЇГ¶ГЁГѕ Г±ГІГ®ГЁГІ Г®ГІГЄГ«ГѕГ·ГЁГІГј
 X11DisplayOffset 10 
 PrintMotd no
 PrintLastLog yes
 TCPKeepAlive yes
-ClientAliveInterval 60 - Добавим проверку доступности по времени
+ClientAliveInterval 60 - Г„Г®ГЎГ ГўГЁГ¬ ГЇГ°Г®ГўГҐГ°ГЄГі Г¤Г®Г±ГІГіГЇГ­Г®Г±ГІГЁ ГЇГ® ГўГ°ГҐГ¬ГҐГ­ГЁ
 ClientAliveCountMax 15 - /-/-/-/
 #UseLogin no
 

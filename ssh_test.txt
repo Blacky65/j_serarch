@@ -1,0 +1,47 @@
+Port 2022 или любой незанятый, рекомендовано в литературе, но можно и оставить 22
+Protocol 2
+# HostKeys for protocol version 2
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+#Privilege Separation is turned on for security
+UsePrivilegeSeparation yes
+
+# Lifetime and size of ephemeral version 1 server key
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+
+# Logging
+SyslogFacility AUTH
+LogLevel VERBOSE
+
+LoginGraceTime 120
+PermitRootLogin no - отключаем root
+StrictModes yes
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile	.ssh/authorized_keys
+
+#IgnoreRhosts yes
+RhostsRSAAuthentication yes - Вопрос спорный, но думаю лучше сразу определить известные хосты
+HostbasedAuthentication yes
+
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no - если уж конфиг пишем для аутентификации по ключам
+PasswordAuthentication no - Запретим пересылку хэшей паролей
+
+X11Forwarding no - Считаю, что если GUI не установлен, то и опцию стоит отключить
+X11DisplayOffset 10 
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+ClientAliveInterval 60 - Добавим проверку доступности по времени
+ClientAliveCountMax 15 - /-/-/-/
+#UseLogin no
+
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM no
